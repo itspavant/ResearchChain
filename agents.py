@@ -5,11 +5,17 @@ from langchain_core.output_parsers import StrOutputParser
 from tools import web_search, scrape_url
 import os
 from dotenv import load_dotenv
+from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_mistralai import ChatMistralAI
 
 load_dotenv()
 
 # mode setup
-llm = ChatGroq(model="llama-3.3-70b-versatile", temperature=0)
+llm = ChatMistralAI(
+    model="mistral-medium-3-5",
+    temperature=0
+)
+
 
 # First Agent -> Search Agent
 def build_search_agent():
