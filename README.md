@@ -1,4 +1,4 @@
-Live: [Click Here](https://researchchain.streamlit.app/)
+Live: [https://researchchain.streamlit.app/](https://researchchain.streamlit.app/)
 
 # ResearchChain
 
