@@ -16,6 +16,7 @@ def run_research_pipeline(topic : str) -> dict:
         "messages" : [("user",
             f"Find recent, reliable and detailed information about:{topic}")]
     })
+    
     tool_messages = [
         msg.content
         for msg in search_result["messages"]
@@ -34,8 +35,8 @@ def run_research_pipeline(topic : str) -> dict:
     reader_result = reader_agent.invoke({
         "messages": [("user",
             f"Based on the following search results about '{topic}', "
-            f"pick the most relevant URL and scrape it for deeper content.\n\n"
-            f"Search Results:\n{state['search_results'][:800]}"
+            f"pick the most 3 relevant URL and scrape it for deeper content.\n\n"
+            f"Search Results:\n{state['search_results']}"
         )]
     })
 
@@ -83,3 +84,5 @@ def run_research_pipeline(topic : str) -> dict:
 if __name__ == "__main__":
     topic = input("\n Enter a research topic: ")
     memory = run_research_pipeline(topic)
+    print("============================================")
+    print(memory)
